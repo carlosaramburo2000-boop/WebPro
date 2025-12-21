@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="WebPro - Sitios web profesionales que convierten visitas en clientes. Landing, menú, WhatsApp, llamadas, Google Maps y más." />
+  <title>WebPro | Sitios web profesionales para negocios</title>
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0C1020;
+      --card:#0F1630;
+      --text:#EAF0FF;
+      --muted:#AAB6D6;
+      --line:rgba(255,255,255,.08);
+
+      /* Ajuste de marca para combinar con tu logo (verde + tonos pro) */
+      --brand:#22C55E;      /* verde */
+      --brand2:#14B8A6;     /* teal */
+      --ok:#34D399;
+      --warn:#FBBF24;
+      --danger:#FB7185;
+
+      --shadow: 0 24px 70px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1000px 700px at 15% 10%, rgba(34,197,94,.22), transparent 55%),
+        radial-gradient(900px 600px at 80% 0%, rgba(20,184,166,.18), transparent 52%),
+        radial-gradient(900px 700px at 70% 80%, rgba(52,211,153,.10), transparent 55%),
+        linear-gradient(180deg, #070A12, #050713 60%, #040511);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(160%) blur(10px);
+      background: rgba(7,10,18,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .top .row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 180px;
+    }
+
+    /* Logo container: se ve pro aunque el logo sea cuadrado */
+    .brand .logo{
+      width:44px; height:44px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      display:grid; place-items:center;
+      overflow:hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+    .brand img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .brand .name{display:flex; flex-direction:column; line-height:1.05}
+    .brand .name strong{font-size:15px; letter-spacing:.2px}
+    .brand .name span{font-size:12px; color:var(--muted)}
+
+    .nav{
+      display:flex; gap:16px; align-items:center;
+      font-size:13px; color:var(--muted);
+    }
+    .nav a{padding:8px 10px; border-radius:10px}
+    .nav a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+    .ctaRow{display:flex; gap:10px; align-items:center}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:11px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 13px;
+      gap:10px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.09)}
+    .btn.primary{
+      border: 1px solid rgba(34,197,94,.40);
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(20,184,166,.80));
+      box-shadow: 0 18px 50px rgba(34,197,94,.18);
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+    .btn.ghost{background:transparent}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      width: fit-content;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background: var(--ok); box-shadow:0 0 0 6px rgba(52,211,153,.12)}
+
+    /* Hero */
+    .hero{padding: 34px 0 26px; position:relative;}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .heroLeft{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .glow{
+      position:absolute; inset:-120px -120px auto auto;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle at 30% 30%, rgba(20,184,166,.22), transparent 55%),
+                  radial-gradient(circle at 60% 60%, rgba(34,197,94,.28), transparent 55%);
+      filter: blur(12px);
+      opacity: .9;
+      pointer-events:none;
+    }
+
+    /* mini branding inside hero */
+    .heroBrand{
+      display:flex; align-items:center; gap:12px;
+      margin-top: 12px;
+    }
+    .heroBrand .bigLogo{
+      width:64px; height:64px;
+      border-radius: 20px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+    .heroBrand .bigLogo img{width:100%; height:100%; object-fit:cover; display:block;}
+    .heroBrand .bigText b{display:block; font-size:14px; letter-spacing:.2px}
+    .heroBrand .bigText span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+
+    h1{
+      font-size: clamp(28px, 4vw, 46px);
+      margin: 12px 0 10px;
+      letter-spacing: -0.02em;
+      line-height:1.03;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.55;
+      max-width: 60ch;
+      margin: 0 0 16px;
+    }
+    .heroActions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin: 18px 0 10px;
+    }
+    .trustRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    .trustItem{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 10px 12px;
+      border-radius: 14px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .icon{
+      width: 26px; height: 26px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+    }
+
+    /* Hero right card */
+    .heroRight{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .mock{
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(700px 320px at 10% 10%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(600px 260px at 90% 0%, rgba(20,184,166,.14), transparent 52%),
+        rgba(15,22,48,.72);
+      padding: 14px;
+    }
+    .mockTop{
+      display:flex; align-items:center; justify-content:space-between;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .chips{display:flex; gap:6px}
+    .chip{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+    }
+    .mockBody{display:grid; gap:10px;}
+    .bar{
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      position:relative;
+    }
+    .bar::after{
+      content:"";
+      position:absolute; inset:0;
+      width: var(--w, 70%);
+      background: linear-gradient(90deg, rgba(34,197,94,.95), rgba(20,184,166,.80));
+      opacity: .85;
+    }
+    .kpis{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .kpi{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .kpi b{display:block; font-size: 16px}
+    .kpi span{display:block; font-size: 12px; color:var(--muted); margin-top: 4px}
+
+    /* Sections */
+    section{padding: 22px 0}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .sectionHead p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+      max-width: 62ch;
+      line-height:1.45;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.28);
+    }
+    .card h3{margin:10px 0 6px; font-size: 16px}
+    .card p{margin:0; color:var(--muted); font-size: 13.5px; line-height:1.5}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .step{
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step .n{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid; place-items:center;
+      font-weight: 800;
+    }
+    .step b{display:block; margin-top:10px}
+    .step span{display:block; color:var(--muted); margin-top:6px; font-size: 13px; line-height:1.5}
+
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items:stretch;
+    }
+    .priceCard{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .priceCard.featured{
+      background: linear-gradient(180deg, rgba(34,197,94,.16), rgba(255,255,255,.03));
+      border-color: rgba(34,197,94,.35);
+      box-shadow: 0 26px 70px rgba(34,197,94,.10);
+    }
+    .priceTop{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+    .priceCard h3{margin:10px 0 6px; font-size: 18px}
+    .price{
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      margin: 6px 0 12px;
+      font-weight: 900;
+    }
+    .price small{font-size: 12px; color:var(--muted); font-weight: 600}
+    ul{margin: 0; padding: 0 0 0 18px; color: var(--muted)}
+    li{margin: 8px 0; line-height:1.35}
+    .priceActions{margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap}
+    .tag{
+      font-size: 12px;
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .tag.hot{
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(20,184,166,.80));
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* FAQ + contact */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    details{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 750;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height:1.55;
+      font-size: 13.5px;
+    }
+
+    .form{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius2);
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.28);
+    }
+    .fields{display:grid; gap:10px; margin-top:10px}
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,10,18,.55);
+      color: var(--text);
+      outline:none;
+      font-size: 13.5px;
+    }
+    textarea{min-height: 110px; resize: vertical}
+    input::placeholder, textarea::placeholder{color: rgba(170,182,214,.7)}
+    .note{font-size: 12px; color: var(--muted); margin-top:10px; line-height:1.4}
+
+    /* Footer */
+    footer{
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--line);
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    .footRow{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .miniLinks{display:flex; gap:12px; flex-wrap:wrap}
+    .miniLinks a{color: var(--muted)}
+    .miniLinks a:hover{color: var(--text)}
+
+    /* Floating buttons */
+    .float{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+      display:flex;
+      gap:10px;
+      flex-direction:column;
+      align-items:flex-end;
+    }
+
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns: 1fr}
+      .kpis{grid-template-columns: repeat(3, 1fr)}
+      .grid3{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr 1fr}
+      .pricing{grid-template-columns: 1fr}
+      .two{grid-template-columns: 1fr}
+      .nav{display:none}
+    }
+    @media (max-width: 520px){
+      .row2{grid-template-columns: 1fr}
+      .kpis{grid-template-columns: 1fr}
+      .brand .name span{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP -->
+  <div class="top">
+    <div class="wrap">
+      <div class="row">
+        <div class="brand">
+          <div class="logo" title="WebPro">
+            <!-- ✅ TU LOGO: pon el archivo logo-webpro.png junto a este index.html -->
+            <img src="logo-webpro.png" alt="Logo WebPro" />
+          </div>
+          <div class="name">
+            <strong>WebPro</strong>
+            <span>Sitios web que convierten</span>
+          </div>
+        </div>
+
+        <div class="nav">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#paquetes">Paquetes</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn ghost" id="callBtn" href="tel:+526643398290">📞 Llamar</a>
+          <a class="btn primary" id="waBtnTop" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="heroLeft">
+          <div class="glow"></div>
+          <div class="pill"><span class="dot"></span> Disponible para nuevos proyectos esta semana</div>
+
+          <!-- Branding con tu logo -->
+          <div class="heroBrand">
+            <div class="bigLogo">
+              <img src="logo-webpro.png" alt="WebPro" />
+            </div>
+            <div class="bigText">
+              <b>WebPro</b>
+              <span>Diseño web profesional para negocios</span>
+            </div>
+          </div>
+
+          <h1>Tu negocio merece una web premium que traiga clientes.</h1>
+          <p class="sub">
+            En <b>WebPro</b> diseñamos páginas rápidas, claras y con botones listos para que te contacten:
+            WhatsApp, llamada, Google Maps y formulario. Nada de “sitios bonitos que no venden”.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#contacto">🚀 Cotizar mi sitio</a>
+            <a class="btn" href="#paquetes">💼 Ver paquetes</a>
+            <a class="btn" href="#proceso">🧩 Cómo trabajamos</a>
+          </div>
+
+          <div class="trustRow">
+            <div class="trustItem">
+              <div class="icon">⚡</div>
+              <div>
+                <b style="display:block">Rápida</b>
+                <span style="color:var(--muted)">Carga optimizada para celular</span>
+              </div>
+            </div>
+            <div class="trustItem">
+              <div class="icon">🎯</div>
+              <div>
+                <b style="display:block">Enfocada</b>
+                <span style="color:var(--muted)">Diseño pensado para convertir</span>
+              </div>
+            </div>
+            <div class="trustItem">
+              <div class="icon">🗺️</div>
+              <div>
+                <b style="display:block">Local</b>
+                <span style="color:var(--muted)">Lista para Maps y contacto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="mock" aria-label="Resumen de resultados">
+            <div class="mockTop">
+              <span>Vista previa de rendimiento</span>
+              <div class="chips">
+                <span class="chip">SEO básico</span>
+                <span class="chip">WhatsApp</span>
+                <span class="chip">Llamadas</span>
+              </div>
+            </div>
+
+            <div class="mockBody">
+              <div class="bar" style="--w:78%"></div>
+              <div class="bar" style="--w:62%"></div>
+              <div class="bar" style="--w:86%"></div>
+              <div class="bar" style="--w:69%"></div>
+            </div>
+
+            <div class="kpis">
+              <div class="kpi">
+                <b>+3X</b>
+                <span>más contactos</span>
+              </div>
+              <div class="kpi">
+                <b>5-7 días</b>
+                <span>tiempo de entrega</span>
+              </div>
+              <div class="kpi">
+                <b>Premium</b>
+                <span>look & confianza</span>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="badge">✅ Diseño profesional</span>
+              <span class="badge">✅ Mobile-first</span>
+              <span class="badge">✅ Botones listos</span>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="badge">📍 Tijuana y alrededores</span>
+            <span class="badge">🛠️ Vercel / Dominio .com</span>
+            <span class="badge">⚙️ Mantenimiento opcional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Servicios</h2>
+          <p>Todo lo que necesitas para que tu web se vea pro y te contacten fácil. Tú atiendes clientes, nosotros armamos el sistema.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="badge">🌐 Sitio web profesional</div>
+          <h3>Landing que vende</h3>
+          <p>Una página clara con oferta, beneficios, prueba social, FAQ y CTA para convertir visitas en mensajes.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">📲 Contacto inmediato</div>
+          <h3>WhatsApp + Llamada</h3>
+          <p>Botones listos con mensaje pre-escrito en WhatsApp o botón de llamada si el negocio no usa WhatsApp.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">📍 Google & confianza</div>
+          <h3>Maps listo</h3>
+          <p>Te dejamos la web preparada para conectarla al perfil de Google Business y que te encuentren más fácil.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">⚡ Rendimiento</div>
+          <h3>Rápida en celular</h3>
+          <p>Optimización para que cargue rápido y no se sienta pesada. Menos rebote, más contacto.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">🧾 Contenido</div>
+          <h3>Textos que convierten</h3>
+          <p>Copy enfocado en resultados: qué haces, para quién, por qué tú, y qué hacer para agendar.</p>
+        </div>
+
+        <div class="card">
+          <div class="badge">🧩 Soporte</div>
+          <h3>Mantenimiento (opcional)</h3>
+          <p>Cambios pequeños, actualizaciones de horarios, fotos, promociones y ajustes para mejorar conversiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Proceso rápido (sin complicarte)</h2>
+          <p>Nos mandas lo básico y nosotros lo convertimos en una web que se ve premium y lista para vender.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <b>Brief por WhatsApp</b>
+          <span>Te hago 7 preguntas rápidas: giro, servicios, ubicación, horario, fotos, estilo y objetivo.</span>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <b>Diseño + estructura</b>
+          <span>Armamos la landing con secciones pensadas para convertir: oferta, beneficios y CTA.</span>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <b>Revisión express</b>
+          <span>Te compartimos link de preview. Pides ajustes y lo dejamos fino.</span>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <b>Entrega + dominio</b>
+          <span>Publicamos en tu dominio .com y dejamos todo listo para que te contacten.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section id="paquetes">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Paquetes</h2>
+          <p>Elige el nivel. Si no sabes cuál, te recomiendo el mejor según tu negocio.</p>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="priceCard">
+          <div class="priceTop">
+            <span class="tag">Inicial</span>
+            <span class="badge">⏱️ 5-7 días</span>
+          </div>
+          <h3>Web Pro Básica</h3>
+          <div class="price">$7,000 <small>MXN</small></div>
+          <ul>
+            <li>Landing profesional (1 página)</li>
+            <li>Botón de llamada o WhatsApp</li>
+            <li>Secciones: servicios, ubicación, contacto</li>
+            <li>Optimizada para celular</li>
+          </ul>
+          <div class="priceActions">
+            <a class="btn" href="#contacto">Quiero este</a>
+          </div>
+        </div>
+
+        <div class="priceCard featured">
+          <div class="priceTop">
+            <span class="tag hot">Más vendido</span>
+            <span class="badge">🔥 Mejor valor</span>
+          </div>
+          <h3>WebPro Negocio</h3>
+          <div class="price">$10,000 <small>MXN</small></div>
+          <ul>
+            <li>Landing de conversión (copy + estructura)</li>
+            <li>WhatsApp con mensaje pre-escrito</li>
+            <li>Botón de llamada + Google Maps</li>
+            <li>FAQ + pruebas (testimonios o reseñas)</li>
+            <li>Entrega lista para publicar en .com</li>
+          </ul>
+          <div class="priceActions">
+            <a class="btn primary" href="#contacto">Cotizar ahora</a>
+            <a class="btn" href="#servicios">Ver qué incluye</a>
+          </div>
+        </div>
+
+        <div class="priceCard">
+          <div class="priceTop">
+            <span class="tag">Premium</span>
+            <span class="badge">🚀 Crecimiento</span>
+          </div>
+          <h3>WebPro Plus</h3>
+          <div class="price">$15,000 <small>MXN</small></div>
+          <ul>
+            <li>Landing + 2 páginas extra (ej. menú/portafolio)</li>
+            <li>Formulario avanzado + CTA múltiple</li>
+            <li>Sección de galería profesional</li>
+            <li>Optimización extra de velocidad</li>
+            <li>Soporte inicial (30 días)</li>
+          </ul>
+          <div class="priceActions">
+            <a class="btn" href="#contacto">Me interesa</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top:12px;">
+        *Precios sugeridos. Si quieres, te dejo el texto listo para venderlo por WhatsApp y cerrar más rápido.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ + CONTACTO -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Preguntas frecuentes</h2>
+          <p>Las dudas típicas de clientes, ya respondidas para que cierres más fácil.</p>
+        </div>
+      </div>
+
+      <div class="two">
+        <div style="display:grid; gap:10px;">
+          <details>
+            <summary>¿En cuánto tiempo entregas?</summary>
+            <p>Normalmente 5–7 días hábiles. Si ya tienes fotos y textos listos, puede ser más rápido.</p>
+          </details>
+          <details>
+            <summary>¿Puedo poner botón de llamada si no tengo WhatsApp?</summary>
+            <p>Sí. Se pone un botón que abre el marcador del teléfono en celular. También se puede dejar WhatsApp y llamada.</p>
+          </details>
+          <details>
+            <summary>¿Ustedes compran el dominio?</summary>
+            <p>El dominio debe pagarlo el cliente. Nosotros te guiamos y lo conectamos para dejar tu web publicada.</p>
+          </details>
+          <details>
+            <summary>¿La web aparece en Google Maps?</summary>
+            <p>Maps depende del Google Business Profile del negocio. Te dejamos la web lista para conectarla. Si el negocio ya tiene perfil, solo se agrega el link.</p>
+          </details>
+        </div>
+
+        <div class="form" id="contacto">
+          <div class="badge">📩 Contacto</div>
+          <h2 style="margin:10px 0 6px;">Cotiza tu sitio en 1 minuto</h2>
+          <p style="margin:0; color:var(--muted); font-size:13.5px; line-height:1.5">
+            Déjame tu info y te respondo con una propuesta clara. Si prefieres, mándame WhatsApp y te atiendo rápido.
+          </p>
+
+          <form class="fields" onsubmit="return handleSubmit(event)">
+            <div class="row2">
+              <input required name="nombre" placeholder="Tu nombre" />
+              <input required name="telefono" placeholder="Tu teléfono (para llamada/WhatsApp)" />
+            </div>
+            <div class="row2">
+              <input required name="negocio" placeholder="Nombre del negocio" />
+              <select required name="paquete">
+                <option value="" disabled selected>Elige un paquete</option>
+                <option>Web Pro Básica</option>
+                <option>WebPro Negocio</option>
+                <option>WebPro Plus</option>
+              </select>
+            </div>
+            <textarea name="mensaje" placeholder="Cuéntame: ¿qué vendes y qué quieres lograr con la web?"></textarea>
+
+            <button class="btn primary" type="submit">✅ Enviar por WhatsApp</button>
+            <div class="note">
+              Este formulario abre WhatsApp con un mensaje ya armado. No guarda datos en servidor.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footRow">
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="logo" style="width:40px;height:40px;border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06);">
+            <img src="logo-webpro.png" alt="WebPro" style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <div>
+            <b style="color:var(--text)">WebPro</b><br />
+            <span>© <span id="y"></span> Sitios web profesionales</span>
+          </div>
+        </div>
+
+        <div class="miniLinks">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#paquetes">Paquetes</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating quick actions -->
+  <div class="float">
+    <a class="btn primary" id="waBtnFloat" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="btn" id="callBtnFloat" href="tel:+526643398290">📞 Llamar</a>
+  </div>
+
+  <script>
+    // ✅ TU NÚMERO REAL (formato internacional sin +, sin espacios)
+    // +52 664 339 8290 -> 526643398290
+    const PHONE_E164 = "526643398290";
+
+    const DEFAULT_WA_TEXT = "Hola WebPro 👋 Quiero una página web para mi negocio. ¿Me puedes dar información y precios?";
+
+    function waLink(text){
+      const msg = encodeURIComponent(text);
+      return `https://wa.me/${PHONE_E164}?text=${msg}`;
+    }
+
+    document.getElementById("waBtnTop").href = waLink(DEFAULT_WA_TEXT);
+    document.getElementById("waBtnFloat").href = waLink(DEFAULT_WA_TEXT);
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Botón de llamada arriba + flotante (mismo número)
+    document.getElementById("callBtn").href = `tel:+${PHONE_E164}`;
+    document.getElementById("callBtnFloat").href = `tel:+${PHONE_E164}`;
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = e.target;
+      const nombre = f.nombre.value.trim();
+      const telefono = f.telefono.value.trim();
+      const negocio = f.negocio.value.trim();
+      const paquete = f.paquete.value.trim();
+      const mensaje = (f.mensaje.value || "").trim();
+
+      const text =
+`Hola WebPro 👋
+Soy ${nombre}.
+Mi negocio: ${negocio}
+Paquete: ${paquete}
+Teléfono: ${telefono}
+Detalles: ${mensaje || "—"}
+¿Me puedes cotizar y decirme tiempos?`;
+
+      window.open(waLink(text), "_blank");
+      return false;
+    }
+  </script>
+</body>
+</html>
