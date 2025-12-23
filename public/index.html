@@ -3,8 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="WebPro - Sitios web profesionales que convierten visitas en clientes. Landing, menú, WhatsApp, llamadas, Google Maps y más." />
-  <title>WebPro | Sitios web profesionales para negocios</title>
+
+  <!-- SEO ON-PAGE -->
+  <title>Páginas web profesionales para negocios | WebPro MX</title>
+  <meta name="description" content="WebPro MX: páginas web profesionales y contenido visual para anuncios, diseñados para atraer clientes y aumentar ventas. WhatsApp, llamadas, Google Maps y más." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.webpromx.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Páginas web profesionales para negocios | WebPro MX" />
+  <meta property="og:description" content="Páginas web y creativos para anuncios diseñados para atraer clientes y aumentar ventas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.webpromx.com/" />
 
   <style>
     :root{
@@ -15,12 +25,9 @@
       --muted:#AAB6D6;
       --line:rgba(255,255,255,.08);
 
-      /* Ajuste de marca para combinar con tu logo (verde + tonos pro) */
-      --brand:#22C55E;      /* verde */
-      --brand2:#14B8A6;     /* teal */
+      --brand:#22C55E;
+      --brand2:#14B8A6;
       --ok:#34D399;
-      --warn:#FBBF24;
-      --danger:#FB7185;
 
       --shadow: 0 24px 70px rgba(0,0,0,.55);
       --radius: 18px;
@@ -45,7 +52,6 @@
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    /* Top bar */
     .top{
       position:sticky; top:0; z-index:40;
       backdrop-filter:saturate(160%) blur(10px);
@@ -62,8 +68,6 @@
       display:flex; align-items:center; gap:12px;
       min-width: 180px;
     }
-
-    /* Logo container: se ve pro aunque el logo sea cuadrado */
     .brand .logo{
       width:44px; height:44px;
       border-radius: 14px;
@@ -79,7 +83,6 @@
       object-fit: cover;
       display:block;
     }
-
     .brand .name{display:flex; flex-direction:column; line-height:1.05}
     .brand .name strong{font-size:15px; letter-spacing:.2px}
     .brand .name span{font-size:12px; color:var(--muted)}
@@ -92,7 +95,6 @@
     .nav a:hover{color:var(--text); background:rgba(255,255,255,.06)}
     .ctaRow{display:flex; gap:10px; align-items:center}
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:11px 14px;
@@ -129,7 +131,6 @@
     }
     .dot{width:8px; height:8px; border-radius:999px; background: var(--ok); box-shadow:0 0 0 6px rgba(52,211,153,.12)}
 
-    /* Hero */
     .hero{padding: 34px 0 26px; position:relative;}
     .heroGrid{
       display:grid;
@@ -156,7 +157,6 @@
       pointer-events:none;
     }
 
-    /* mini branding inside hero */
     .heroBrand{
       display:flex; align-items:center; gap:12px;
       margin-top: 12px;
@@ -184,7 +184,7 @@
       color: var(--muted);
       font-size: 15.5px;
       line-height: 1.55;
-      max-width: 60ch;
+      max-width: 62ch;
       margin: 0 0 16px;
     }
     .heroActions{
@@ -213,7 +213,6 @@
       flex: 0 0 auto;
     }
 
-    /* Hero right card */
     .heroRight{
       border-radius: var(--radius2);
       border: 1px solid var(--line);
@@ -238,7 +237,7 @@
       font-size: 12px;
       margin-bottom: 10px;
     }
-    .chips{display:flex; gap:6px}
+    .chips{display:flex; gap:6px; flex-wrap:wrap}
     .chip{
       padding: 6px 10px;
       border-radius: 999px;
@@ -277,7 +276,6 @@
     .kpi b{display:block; font-size: 16px}
     .kpi span{display:block; font-size: 12px; color:var(--muted); margin-top: 4px}
 
-    /* Sections */
     section{padding: 22px 0}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between;
@@ -293,7 +291,7 @@
       margin:0;
       color: var(--muted);
       font-size: 13.5px;
-      max-width: 62ch;
+      max-width: 70ch;
       line-height:1.45;
     }
 
@@ -319,33 +317,34 @@
       background: rgba(255,255,255,.06);
       color: var(--muted);
       font-size: 12px;
+      width: fit-content;
     }
 
-    .steps{
+    .two{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items:start;
     }
-    .step{
-      border-radius: var(--radius);
+    details{
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      padding: 14px;
-      position:relative;
-      overflow:hidden;
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 14px 14px;
     }
-    .step .n{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      display:grid; place-items:center;
-      font-weight: 800;
+    summary{
+      cursor:pointer;
+      font-weight: 750;
+      list-style:none;
     }
-    .step b{display:block; margin-top:10px}
-    .step span{display:block; color:var(--muted); margin-top:6px; font-size: 13px; line-height:1.5}
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height:1.55;
+      font-size: 13.5px;
+    }
 
-    /* Pricing */
     .pricing{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -384,36 +383,11 @@
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
+      width: fit-content;
     }
     .tag.hot{
       background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(20,184,166,.80));
       border-color: rgba(255,255,255,.18);
-    }
-
-    /* FAQ + contact */
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items:start;
-    }
-    details{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      padding: 14px 14px;
-    }
-    summary{
-      cursor:pointer;
-      font-weight: 750;
-      list-style:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height:1.55;
-      font-size: 13.5px;
     }
 
     .form{
@@ -439,7 +413,6 @@
     input::placeholder, textarea::placeholder{color: rgba(170,182,214,.7)}
     .note{font-size: 12px; color: var(--muted); margin-top:10px; line-height:1.4}
 
-    /* Footer */
     footer{
       padding: 28px 0 34px;
       border-top: 1px solid var(--line);
@@ -456,7 +429,6 @@
     .miniLinks a{color: var(--muted)}
     .miniLinks a:hover{color: var(--text)}
 
-    /* Floating buttons */
     .float{
       position:fixed;
       right: 16px;
@@ -472,7 +444,6 @@
       .heroGrid{grid-template-columns: 1fr}
       .kpis{grid-template-columns: repeat(3, 1fr)}
       .grid3{grid-template-columns: 1fr}
-      .steps{grid-template-columns: 1fr 1fr}
       .pricing{grid-template-columns: 1fr}
       .two{grid-template-columns: 1fr}
       .nav{display:none}
@@ -486,24 +457,22 @@
 </head>
 
 <body>
-  <!-- TOP -->
   <div class="top">
     <div class="wrap">
       <div class="row">
         <div class="brand">
-          <div class="logo" title="WebPro">
-            <!-- ✅ TU LOGO: pon el archivo logo-webpro.png junto a este index.html -->
-            <img src="logo-webpro.png" alt="Logo WebPro" />
+          <div class="logo" title="WebPro MX">
+            <img src="logo-webpro.png" alt="Logo WebPro MX" />
           </div>
           <div class="name">
-            <strong>WebPro</strong>
-            <span>Sitios web que convierten</span>
+            <strong>WebPro MX</strong>
+            <span>Presencia digital para negocios</span>
           </div>
         </div>
 
         <div class="nav">
           <a href="#servicios">Servicios</a>
-          <a href="#proceso">Proceso</a>
+          <a href="#ejemplos">Ejemplos</a>
           <a href="#paquetes">Paquetes</a>
           <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
@@ -517,7 +486,6 @@
     </div>
   </div>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="wrap">
       <div class="heroGrid">
@@ -525,29 +493,26 @@
           <div class="glow"></div>
           <div class="pill"><span class="dot"></span> Disponible para nuevos proyectos esta semana</div>
 
-          <!-- Branding con tu logo -->
           <div class="heroBrand">
             <div class="bigLogo">
-              <img src="logo-webpro.png" alt="WebPro" />
+              <img src="logo-webpro.png" alt="WebPro MX" />
             </div>
             <div class="bigText">
-              <b>WebPro</b>
-              <span>Diseño web profesional para negocios</span>
+              <b>WebPro MX</b>
+              <span>Páginas web + creativos para anuncios</span>
             </div>
           </div>
 
-          <!-- ✅ ÚNICO CAMBIO AQUÍ -->
           <h1>Páginas web profesionales para negocios</h1>
-
           <p class="sub">
-            En <b>WebPro</b> diseñamos páginas rápidas, claras y con botones listos para que te contacten:
-            WhatsApp, llamada, Google Maps y formulario. Nada de “sitios bonitos que no venden”.
+            Diseñamos <b>páginas web enfocadas en ventas</b> (WhatsApp, llamadas, Google Maps) y
+            <b>contenido visual para anuncios</b> para que tu negocio se vea premium y genere clientes.
           </p>
 
           <div class="heroActions">
-            <a class="btn primary" href="#contacto">🚀 Cotizar mi sitio</a>
+            <a class="btn primary" id="waBtnHero" href="#" target="_blank" rel="noopener">💬 Cotizar por WhatsApp</a>
             <a class="btn" href="#paquetes">💼 Ver paquetes</a>
-            <a class="btn" href="#proceso">🧩 Cómo trabajamos</a>
+            <a class="btn" href="#servicios">🧩 Servicios</a>
           </div>
 
           <div class="trustRow">
@@ -555,21 +520,21 @@
               <div class="icon">⚡</div>
               <div>
                 <b style="display:block">Rápida</b>
-                <span style="color:var(--muted)">Carga optimizada para celular</span>
+                <span style="color:var(--muted)">Optimizada para celular</span>
               </div>
             </div>
             <div class="trustItem">
               <div class="icon">🎯</div>
               <div>
                 <b style="display:block">Enfocada</b>
-                <span style="color:var(--muted)">Diseño pensado para convertir</span>
+                <span style="color:var(--muted)">Estructura para convertir</span>
               </div>
             </div>
             <div class="trustItem">
-              <div class="icon">🗺️</div>
+              <div class="icon">📣</div>
               <div>
-                <b style="display:block">Local</b>
-                <span style="color:var(--muted)">Lista para Maps y contacto</span>
+                <b style="display:block">Lista para Ads</b>
+                <span style="color:var(--muted)">Creativos para anunciar</span>
               </div>
             </div>
           </div>
@@ -578,220 +543,227 @@
         <div class="heroRight">
           <div class="mock" aria-label="Resumen de resultados">
             <div class="mockTop">
-              <span>Vista previa de rendimiento</span>
+              <span>Checklist de conversión</span>
               <div class="chips">
-                <span class="chip">SEO básico</span>
                 <span class="chip">WhatsApp</span>
                 <span class="chip">Llamadas</span>
+                <span class="chip">Maps</span>
               </div>
             </div>
 
             <div class="mockBody">
-              <div class="bar" style="--w:78%"></div>
-              <div class="bar" style="--w:62%"></div>
-              <div class="bar" style="--w:86%"></div>
-              <div class="bar" style="--w:69%"></div>
+              <div class="bar" style="--w:84%"></div>
+              <div class="bar" style="--w:68%"></div>
+              <div class="bar" style="--w:90%"></div>
+              <div class="bar" style="--w:73%"></div>
             </div>
 
             <div class="kpis">
               <div class="kpi">
-                <b>+3X</b>
+                <b>+Confianza</b>
+                <span>look premium</span>
+              </div>
+              <div class="kpi">
+                <b>5–7 días</b>
+                <span>entrega típica</span>
+              </div>
+              <div class="kpi">
+                <b>+Ventas</b>
                 <span>más contactos</span>
-              </div>
-              <div class="kpi">
-                <b>5-7 días</b>
-                <span>tiempo de entrega</span>
-              </div>
-              <div class="kpi">
-                <b>Premium</b>
-                <span>look & confianza</span>
               </div>
             </div>
 
             <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-              <span class="badge">✅ Diseño profesional</span>
               <span class="badge">✅ Mobile-first</span>
-              <span class="badge">✅ Botones listos</span>
+              <span class="badge">✅ CTA claros</span>
+              <span class="badge">✅ Listo para anunciar</span>
             </div>
           </div>
 
           <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
             <span class="badge">📍 Tijuana y alrededores</span>
-            <span class="badge">🛠️ Vercel / Dominio .com</span>
-            <span class="badge">⚙️ Mantenimiento opcional</span>
+            <span class="badge">🛠️ Dominio .com</span>
+            <span class="badge">⚙️ Soporte opcional</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- SERVICIOS -->
   <section id="servicios">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Servicios</h2>
-          <p>Todo lo que necesitas para que tu web se vea pro y te contacten fácil. Tú atiendes clientes, nosotros armamos el sistema.</p>
+          <p>Un enfoque híbrido: <b>web</b> para convertir + <b>contenido visual</b> para atraer tráfico. Todo con un objetivo: clientes.</p>
         </div>
       </div>
 
       <div class="grid3">
         <div class="card">
-          <div class="badge">🌐 Sitio web profesional</div>
-          <h3>Landing que vende</h3>
-          <p>Una página clara con oferta, beneficios, prueba social, FAQ y CTA para convertir visitas en mensajes.</p>
+          <div class="badge">🌐 Principal</div>
+          <h3>Páginas web profesionales</h3>
+          <p>Landing clara y premium para que te escriban, te llamen y confíen en tu negocio.</p>
         </div>
 
         <div class="card">
-          <div class="badge">📲 Contacto inmediato</div>
-          <h3>WhatsApp + Llamada</h3>
-          <p>Botones listos con mensaje pre-escrito en WhatsApp o botón de llamada si el negocio no usa WhatsApp.</p>
+          <div class="badge">💬 Conversión</div>
+          <h3>WhatsApp + llamadas + Maps</h3>
+          <p>Botones listos y visibles. Menos fricción, más mensajes y más cierres.</p>
         </div>
 
         <div class="card">
-          <div class="badge">📍 Google & confianza</div>
-          <h3>Maps listo</h3>
-          <p>Te dejamos la web preparada para conectarla al perfil de Google Business y que te encuentren más fácil.</p>
+          <div class="badge">📣 Complemento</div>
+          <h3>Contenido visual para anuncios</h3>
+          <p>Creativos listos para Facebook/Instagram Ads y contenido orgánico, pensados para vender.</p>
         </div>
 
         <div class="card">
           <div class="badge">⚡ Rendimiento</div>
           <h3>Rápida en celular</h3>
-          <p>Optimización para que cargue rápido y no se sienta pesada. Menos rebote, más contacto.</p>
+          <p>Optimización para que cargue bien y no se sienta pesada. Menos rebote.</p>
         </div>
 
         <div class="card">
-          <div class="badge">🧾 Contenido</div>
+          <div class="badge">🧾 Copy</div>
           <h3>Textos que convierten</h3>
-          <p>Copy enfocado en resultados: qué haces, para quién, por qué tú, y qué hacer para agendar.</p>
+          <p>Secciones con orden: oferta, beneficios, prueba social y CTA. Sin relleno.</p>
         </div>
 
         <div class="card">
-          <div class="badge">🧩 Soporte</div>
-          <h3>Mantenimiento (opcional)</h3>
-          <p>Cambios pequeños, actualizaciones de horarios, fotos, promociones y ajustes para mejorar conversiones.</p>
+          <div class="badge">🛠️ Opcional</div>
+          <h3>Mantenimiento</h3>
+          <p>Actualizaciones de horarios, promos, fotos y ajustes para mejorar conversiones.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESO -->
-  <section id="proceso">
+  <section id="ejemplos">
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <h2>Proceso rápido (sin complicarte)</h2>
-          <p>Nos mandas lo básico y nosotros lo convertimos en una web que se ve premium y lista para vender.</p>
+          <h2>Ejemplos de diseño</h2>
+          <p>Referencias reales de estilo y estructura (demos).</p>
         </div>
       </div>
 
-      <div class="steps">
-        <div class="step">
-          <div class="n">1</div>
-          <b>Brief por WhatsApp</b>
-          <span>Te hago 7 preguntas rápidas: giro, servicios, ubicación, horario, fotos, estilo y objetivo.</span>
+      <div class="grid3">
+        <div class="card">
+          <div class="badge">🎪 Demo</div>
+          <h3>Salón de Eventos La Pérgola</h3>
+          <p>Diseño elegante, secciones claras y CTA listos.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="https://la-pergola.vercel.app/" target="_blank" rel="noopener">Ver demo</a>
+          </div>
         </div>
-        <div class="step">
-          <div class="n">2</div>
-          <b>Diseño + estructura</b>
-          <span>Armamos la landing con secciones pensadas para convertir: oferta, beneficios y CTA.</span>
+
+        <div class="card">
+          <div class="badge">🌶️ Demo</div>
+          <h3>Fuego y Lima</h3>
+          <p>Estilo moderno, enfoque visual y contacto rápido.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="https://www.fuegoylima.com/" target="_blank" rel="noopener">Ver demo</a>
+          </div>
         </div>
-        <div class="step">
-          <div class="n">3</div>
-          <b>Revisión express</b>
-          <span>Te compartimos link de preview. Pides ajustes y lo dejamos fino.</span>
-        </div>
-        <div class="step">
-          <div class="n">4</div>
-          <b>Entrega + dominio</b>
-          <span>Publicamos en tu dominio .com y dejamos todo listo para que te contacten.</span>
+
+        <div class="card">
+          <div class="badge">✨ Tu demo</div>
+          <h3>¿Quieres una muestra?</h3>
+          <p>Te orientamos y te decimos qué tipo de página le conviene a tu negocio.</p>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" id="waBtnExamples" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PAQUETES -->
+  <!-- ✅ SOLO CAMBIÉ ESTA SECCIÓN: PAQUETES -->
   <section id="paquetes">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Paquetes</h2>
-          <p>Elige el nivel. Si no sabes cuál, te recomiendo el mejor según tu negocio.</p>
+          <p>Elige el paquete ideal según tu objetivo. Si no sabes cuál, te recomiendo el mejor para tu negocio.</p>
         </div>
       </div>
 
       <div class="pricing">
+        <!-- Paquete 1 -->
         <div class="priceCard">
           <div class="priceTop">
             <span class="tag">Inicial</span>
-            <span class="badge">⏱️ 5-7 días</span>
+            <span class="badge">⏱️ 3–5 días</span>
           </div>
           <h3>Web Pro Básica</h3>
-          <div class="price">$7,000 <small>MXN</small></div>
+          <div class="price">$5,000 <small>MXN</small></div>
           <ul>
             <li>Landing profesional (1 página)</li>
-            <li>Botón de llamada o WhatsApp</li>
-            <li>Secciones: servicios, ubicación, contacto</li>
+            <li>Formulario de contacto</li>
+            <li>Botones visibles (WhatsApp / llamada / Maps)</li>
+            <li>WhatsApp con mensaje pre-escrito</li>
             <li>Optimizada para celular</li>
           </ul>
           <div class="priceActions">
-            <a class="btn" href="#contacto">Quiero este</a>
+            <a class="btn" id="waBtnPack1" href="#" target="_blank" rel="noopener">Quiero este</a>
           </div>
         </div>
 
+        <!-- Paquete 2 -->
         <div class="priceCard featured">
           <div class="priceTop">
-            <span class="tag hot">Más vendido</span>
-            <span class="badge">🔥 Mejor valor</span>
+            <span class="tag hot">Creativos</span>
+            <span class="badge">📣 Ads / Orgánico</span>
           </div>
-          <h3>WebPro Negocio</h3>
-          <div class="price">$10,000 <small>MXN</small></div>
+          <h3>Pack de Creativos (Contenido + Anuncios)</h3>
+          <div class="price">$3,500 <small>MXN</small></div>
           <ul>
-            <li>Landing de conversión (copy + estructura)</li>
-            <li>WhatsApp con mensaje pre-escrito</li>
-            <li>Botón de llamada + Google Maps</li>
-            <li>FAQ + pruebas (testimonios o reseñas)</li>
-            <li>Entrega lista para publicar en .com</li>
+            <li><b>8 creativos</b> listos para Facebook e Instagram</li>
+            <li>Diseños profesionales pensados para vender</li>
+            <li>Formatos para publicaciones y anuncios</li>
+            <li>Textos visuales claros (CTA incluido)</li>
+            <li>Entrega lista para subir</li>
           </ul>
           <div class="priceActions">
-            <a class="btn primary" href="#contacto">Cotizar ahora</a>
-            <a class="btn" href="#servicios">Ver qué incluye</a>
+            <a class="btn primary" id="waBtnPack2" href="#" target="_blank" rel="noopener">Quiero mis creativos</a>
+            <a class="btn" href="#contacto">Preguntar</a>
           </div>
         </div>
 
+        <!-- Paquete 3 -->
         <div class="priceCard">
           <div class="priceTop">
-            <span class="tag">Premium</span>
-            <span class="badge">🚀 Crecimiento</span>
+            <span class="tag">Híbrido</span>
+            <span class="badge">🔥 Web + Creativos</span>
           </div>
-          <h3>WebPro Plus</h3>
-          <div class="price">$15,000 <small>MXN</small></div>
+          <h3>Web + Pack de Creativos</h3>
+          <div class="price">$8,500 <small>MXN</small></div>
           <ul>
-            <li>Landing + 2 páginas extra (ej. menú/portafolio)</li>
-            <li>Formulario avanzado + CTA múltiple</li>
-            <li>Sección de galería profesional</li>
-            <li>Optimización extra de velocidad</li>
-            <li>Soporte inicial (30 días)</li>
+            <li>Web Pro Básica (incluye formulario + botones + WhatsApp pre-escrito)</li>
+            <li>Pack de <b>8 creativos</b> para contenido y anuncios</li>
+            <li>Todo listo para empezar a anunciar y vender</li>
+            <li>Entrega rápida + ajustes menores</li>
+            <li>Soporte inicial</li>
           </ul>
           <div class="priceActions">
-            <a class="btn" href="#contacto">Me interesa</a>
+            <a class="btn" id="waBtnPack3" href="#" target="_blank" rel="noopener">Me interesa</a>
           </div>
         </div>
       </div>
 
       <p class="note" style="margin-top:12px;">
-        *Precios sugeridos. Si quieres, te dejo el texto listo para venderlo por WhatsApp y cerrar más rápido.
+        *Si ya tienes página web, puedes contratar solo el <b>Pack de Creativos</b>.
       </p>
     </div>
   </section>
 
-  <!-- FAQ + CONTACTO -->
   <section id="faq">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Preguntas frecuentes</h2>
-          <p>Las dudas típicas de clientes, ya respondidas para que cierres más fácil.</p>
+          <p>Lo típico que preguntan los negocios antes de decidir. Aquí está resuelto.</p>
         </div>
       </div>
 
@@ -799,27 +771,27 @@
         <div style="display:grid; gap:10px;">
           <details>
             <summary>¿En cuánto tiempo entregas?</summary>
-            <p>Normalmente 5–7 días hábiles. Si ya tienes fotos y textos listos, puede ser más rápido.</p>
+            <p>Normalmente 5–7 días hábiles, dependiendo de qué tan rápido nos compartas fotos, datos y referencias.</p>
           </details>
           <details>
-            <summary>¿Puedo poner botón de llamada si no tengo WhatsApp?</summary>
-            <p>Sí. Se pone un botón que abre el marcador del teléfono en celular. También se puede dejar WhatsApp y llamada.</p>
+            <summary>¿Puedo contratar solo creativos para anuncios?</summary>
+            <p>Sí. Si ya tienes web, te hacemos el pack de creativos listo para anunciar o para contenido orgánico.</p>
           </details>
           <details>
             <summary>¿Ustedes compran el dominio?</summary>
-            <p>El dominio debe pagarlo el cliente. Nosotros te guiamos y lo conectamos para dejar tu web publicada.</p>
+            <p>El dominio lo paga el cliente. Nosotros te guiamos y lo conectamos para publicar tu web.</p>
           </details>
           <details>
-            <summary>¿La web aparece en Google Maps?</summary>
-            <p>Maps depende del Google Business Profile del negocio. Te dejamos la web lista para conectarla. Si el negocio ya tiene perfil, solo se agrega el link.</p>
+            <summary>¿La web aparece en Google?</summary>
+            <p>Se puede indexar en Google. Además, la dejamos lista para conectarla a tu perfil de Google Business.</p>
           </details>
         </div>
 
         <div class="form" id="contacto">
           <div class="badge">📩 Contacto</div>
-          <h2 style="margin:10px 0 6px;">Cotiza tu sitio en 1 minuto</h2>
+          <h2 style="margin:10px 0 6px;">Cotiza tu proyecto en 1 minuto</h2>
           <p style="margin:0; color:var(--muted); font-size:13.5px; line-height:1.5">
-            Déjame tu info y te respondo con una propuesta clara. Si prefieres, mándame WhatsApp y te atiendo rápido.
+            Este formulario abre WhatsApp con un mensaje armado. No guarda datos en servidor.
           </p>
 
           <form class="fields" onsubmit="return handleSubmit(event)">
@@ -829,18 +801,18 @@
             </div>
             <div class="row2">
               <input required name="negocio" placeholder="Nombre del negocio" />
-              <select required name="paquete">
-                <option value="" disabled selected>Elige un paquete</option>
-                <option>Web Pro Básica</option>
-                <option>WebPro Negocio</option>
-                <option>WebPro Plus</option>
+              <select required name="servicio">
+                <option value="" disabled selected>¿Qué necesitas?</option>
+                <option>Página web profesional</option>
+                <option>Contenido visual para anuncios</option>
+                <option>Web + creativos (híbrido)</option>
               </select>
             </div>
-            <textarea name="mensaje" placeholder="Cuéntame: ¿qué vendes y qué quieres lograr con la web?"></textarea>
+            <textarea name="mensaje" placeholder="Cuéntame: ¿qué vendes y qué quieres lograr?"></textarea>
 
             <button class="btn primary" type="submit">✅ Enviar por WhatsApp</button>
             <div class="note">
-              Este formulario abre WhatsApp con un mensaje ya armado. No guarda datos en servidor.
+              Tip: mientras más claro tu giro y objetivo, más rápido te cotizamos.
             </div>
           </form>
         </div>
@@ -853,17 +825,17 @@
       <div class="footRow">
         <div style="display:flex; gap:12px; align-items:center;">
           <div class="logo" style="width:40px;height:40px;border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06);">
-            <img src="logo-webpro.png" alt="WebPro" style="width:100%;height:100%;object-fit:cover" />
+            <img src="logo-webpro.png" alt="WebPro MX" style="width:100%;height:100%;object-fit:cover" />
           </div>
           <div>
-            <b style="color:var(--text)">WebPro</b><br />
-            <span>© <span id="y"></span> Sitios web profesionales</span>
+            <b style="color:var(--text)">WebPro MX</b><br />
+            <span>© <span id="y"></span> Presencia digital para negocios</span>
           </div>
         </div>
 
         <div class="miniLinks">
           <a href="#servicios">Servicios</a>
-          <a href="#proceso">Proceso</a>
+          <a href="#ejemplos">Ejemplos</a>
           <a href="#paquetes">Paquetes</a>
           <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
@@ -872,18 +844,16 @@
     </div>
   </footer>
 
-  <!-- Floating quick actions -->
   <div class="float">
     <a class="btn primary" id="waBtnFloat" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
     <a class="btn" id="callBtnFloat" href="tel:+526643398290">📞 Llamar</a>
   </div>
 
   <script>
-    // ✅ TU NÚMERO REAL (formato internacional sin +, sin espacios)
-    // +52 664 339 8290 -> 526643398290
     const PHONE_E164 = "526643398290";
 
-    const DEFAULT_WA_TEXT = "Hola WebPro 👋 Quiero una página web para mi negocio. ¿Me puedes dar información y precios?";
+    const DEFAULT_WA_TEXT =
+      "Hola WebPro MX 👋 Vi su página y me interesa información. ¿Me pueden asesorar y cotizar?";
 
     function waLink(text){
       const msg = encodeURIComponent(text);
@@ -891,12 +861,19 @@
     }
 
     document.getElementById("waBtnTop").href = waLink(DEFAULT_WA_TEXT);
+    document.getElementById("waBtnHero").href = waLink(DEFAULT_WA_TEXT);
     document.getElementById("waBtnFloat").href = waLink(DEFAULT_WA_TEXT);
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("waBtnExamples").href = waLink("Hola WebPro MX 👋 Quiero información y una recomendación del paquete ideal para mi negocio.");
 
-    // Botón de llamada arriba + flotante (mismo número)
+    // ✅ Mensajes actualizados para cada paquete
+    document.getElementById("waBtnPack1").href = waLink("Hola WebPro MX 👋 Me interesa el paquete Web Pro Básica de $5,000. Quiero web con formulario, botones y WhatsApp con mensaje pre-escrito. ¿Qué necesitan de mi negocio y tiempos?");
+    document.getElementById("waBtnPack2").href = waLink("Hola WebPro MX 👋 Me interesa el Pack de Creativos de $3,500 (8 creativos). ¿Me pueden decir qué info necesitan y tiempos de entrega?");
+    document.getElementById("waBtnPack3").href = waLink("Hola WebPro MX 👋 Me interesa el paquete Híbrido (Web + 8 creativos) de $8,500. ¿Me pueden cotizar y decirme tiempos, por favor?");
+
     document.getElementById("callBtn").href = `tel:+${PHONE_E164}`;
     document.getElementById("callBtnFloat").href = `tel:+${PHONE_E164}`;
+
+    document.getElementById("y").textContent = new Date().getFullYear();
 
     function handleSubmit(e){
       e.preventDefault();
@@ -904,21 +881,22 @@
       const nombre = f.nombre.value.trim();
       const telefono = f.telefono.value.trim();
       const negocio = f.negocio.value.trim();
-      const paquete = f.paquete.value.trim();
+      const servicio = f.servicio.value.trim();
       const mensaje = (f.mensaje.value || "").trim();
 
       const text =
-`Hola WebPro 👋
+`Hola WebPro MX 👋
 Soy ${nombre}.
 Mi negocio: ${negocio}
-Paquete: ${paquete}
+Necesito: ${servicio}
 Teléfono: ${telefono}
 Detalles: ${mensaje || "—"}
-¿Me puedes cotizar y decirme tiempos?`;
+¿Me pueden cotizar y decirme tiempos?`;
 
       window.open(waLink(text), "_blank");
       return false;
     }
+    window.handleSubmit = handleSubmit;
   </script>
 </body>
 </html>
