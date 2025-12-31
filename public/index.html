@@ -679,7 +679,7 @@
     </div>
   </section>
 
-  <!-- ✅ SOLO CAMBIÉ ESTA SECCIÓN: PAQUETES -->
+  <!-- ✅ PAQUETES -->
   <section id="paquetes">
     <div class="wrap">
       <div class="sectionHead">
@@ -713,20 +713,18 @@
         <!-- Paquete 2 -->
         <div class="priceCard featured">
           <div class="priceTop">
-            <span class="tag hot">Creativos</span>
+            <span class="tag hot">Contenido</span>
             <span class="badge">📣 Ads / Orgánico</span>
           </div>
-          <h3>Pack de Creativos (Contenido + Anuncios)</h3>
+          <h3>Pack de Contenido</h3>
           <div class="price">$3,500 <small>MXN</small></div>
           <ul>
-            <li><b>8 creativos</b> listos para Facebook e Instagram</li>
-            <li>Diseños profesionales pensados para vender</li>
-            <li>Formatos para publicaciones y anuncios</li>
-            <li>Textos visuales claros (CTA incluido)</li>
-            <li>Entrega lista para subir</li>
+            <li><b>Elige 1 opción:</b> A) 14 creativos · B) 6 videos · C) 8 creativos + 4 videos</li>
+            <li>Listo para redes y anuncios (CTA incluido)</li>
+            <li><b>Contenido adicional:</b> El paquete incluye una cantidad definida de creativos o videos. En caso de requerir <b>contenido adicional</b>, se cotiza <b>por pieza</b> según el tipo solicitado.</li>
           </ul>
           <div class="priceActions">
-            <a class="btn primary" id="waBtnPack2" href="#" target="_blank" rel="noopener">Quiero mis creativos</a>
+            <a class="btn primary" id="waBtnPack2" href="#" target="_blank" rel="noopener">Quiero mi pack</a>
             <a class="btn" href="#contacto">Preguntar</a>
           </div>
         </div>
@@ -735,13 +733,13 @@
         <div class="priceCard">
           <div class="priceTop">
             <span class="tag">Híbrido</span>
-            <span class="badge">🔥 Web + Creativos</span>
+            <span class="badge">🔥 Web + Contenido</span>
           </div>
-          <h3>Web + Pack de Creativos</h3>
+          <h3>Web + Pack de Contenido</h3>
           <div class="price">$8,500 <small>MXN</small></div>
           <ul>
-            <li>Web Pro Básica (incluye formulario + botones + WhatsApp pre-escrito)</li>
-            <li>Pack de <b>8 creativos</b> para contenido y anuncios</li>
+            <li>Web Pro Básica (formulario + botones + WhatsApp pre-escrito)</li>
+            <li>Incluye el <b>Pack de Contenido</b> (opción A/B/C)</li>
             <li>Todo listo para empezar a anunciar y vender</li>
             <li>Entrega rápida + ajustes menores</li>
             <li>Soporte inicial</li>
@@ -753,7 +751,7 @@
       </div>
 
       <p class="note" style="margin-top:12px;">
-        *Si ya tienes página web, puedes contratar solo el <b>Pack de Creativos</b>.
+        *Si ya tienes página web, puedes contratar solo el <b>Pack de Contenido</b>.
       </p>
     </div>
   </section>
@@ -774,8 +772,8 @@
             <p>Normalmente 5–7 días hábiles, dependiendo de qué tan rápido nos compartas fotos, datos y referencias.</p>
           </details>
           <details>
-            <summary>¿Puedo contratar solo creativos para anuncios?</summary>
-            <p>Sí. Si ya tienes web, te hacemos el pack de creativos listo para anunciar o para contenido orgánico.</p>
+            <summary>¿Puedo contratar solo contenido para anuncios?</summary>
+            <p>Sí. Si ya tienes web, te hacemos el Pack de Contenido listo para anunciar o para contenido orgánico.</p>
           </details>
           <details>
             <summary>¿Ustedes compran el dominio?</summary>
@@ -805,7 +803,7 @@
                 <option value="" disabled selected>¿Qué necesitas?</option>
                 <option>Página web profesional</option>
                 <option>Contenido visual para anuncios</option>
-                <option>Web + creativos (híbrido)</option>
+                <option>Web + contenido (híbrido)</option>
               </select>
             </div>
             <textarea name="mensaje" placeholder="Cuéntame: ¿qué vendes y qué quieres lograr?"></textarea>
@@ -865,10 +863,20 @@
     document.getElementById("waBtnFloat").href = waLink(DEFAULT_WA_TEXT);
     document.getElementById("waBtnExamples").href = waLink("Hola WebPro MX 👋 Quiero información y una recomendación del paquete ideal para mi negocio.");
 
-    // ✅ Mensajes actualizados para cada paquete
-    document.getElementById("waBtnPack1").href = waLink("Hola WebPro MX 👋 Me interesa el paquete Web Pro Básica de $5,000. Quiero web con formulario, botones y WhatsApp con mensaje pre-escrito. ¿Qué necesitan de mi negocio y tiempos?");
-    document.getElementById("waBtnPack2").href = waLink("Hola WebPro MX 👋 Me interesa el Pack de Creativos de $3,500 (8 creativos). ¿Me pueden decir qué info necesitan y tiempos de entrega?");
-    document.getElementById("waBtnPack3").href = waLink("Hola WebPro MX 👋 Me interesa el paquete Híbrido (Web + 8 creativos) de $8,500. ¿Me pueden cotizar y decirme tiempos, por favor?");
+    // ✅ Mensajes para cada paquete
+    document.getElementById("waBtnPack1").href = waLink(
+      "Hola WebPro MX 👋 Me interesa el paquete Web Pro Básica de $5,000. Quiero web con formulario, botones y WhatsApp con mensaje pre-escrito. ¿Qué necesitan de mi negocio y tiempos?"
+    );
+
+    // ✅ Pack 2: mensaje simple (sin mencionar opciones)
+    document.getElementById("waBtnPack2").href = waLink(
+      "Hola WebPro MX 👋 Me interesa el Pack de Contenido de $3,500. ¿Qué información necesitan y tiempos de entrega?"
+    );
+
+    // ✅ Pack 3: Web + Pack de Contenido (A/B/C)
+    document.getElementById("waBtnPack3").href = waLink(
+      "Hola WebPro MX 👋 Me interesa el paquete Web + Pack de Contenido de $8,500. Quiero web (formulario + botones + WhatsApp pre-escrito) e incluir el Pack de Contenido (A/B/C). ¿Qué necesitan de mi negocio y tiempos?"
+    );
 
     document.getElementById("callBtn").href = `tel:+${PHONE_E164}`;
     document.getElementById("callBtnFloat").href = `tel:+${PHONE_E164}`;
